@@ -2,13 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: DELL
- * Date: 2019/10/14
- * Time: 17:00
+ * Date: 2019/10/15
+ * Time: 12:54
  */
 namespace app\admin\model;
 use think\Db;
 use think\Model;
-class  Commonnode extends Model{
+class  Role extends Model
+{
+    protected $pk = 'role_id';
     public function  notCates(){
         $cates = Db::table("shopmall_node")->select();
         return $this->getorderCate($cates);
@@ -24,12 +26,8 @@ class  Commonnode extends Model{
         }
         return $newcate;
     }
-    public function nodeadd($data){
-        $cate=Db::table("shopmall_node")->insert($data);
-        if($cate){
-            return true;
-        }else{
-            return  false;
-        }
+    public function node()
+    {
+        return $this->belongsToMany("Node","role_node","node_id","role_id");
     }
 }

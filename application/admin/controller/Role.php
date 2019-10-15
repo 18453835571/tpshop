@@ -10,13 +10,27 @@ class Role extends Controller
 
     public function add()
     {
-        return  view();
+       if(request()->isGet()){
+           $cate=new \app\admin\model\Role();
+           $cates=$cate->notCates();
+           return  view('',["cates"=>$cates]);
+       }
+       if(request()->isPost()){
+           $node_id=request()->post("node_id");
+           $user =new \app\admin\model\Role();
+           $user->allowField(true)->save(request()->post());
+           $user->node()->saveAll($node_id);
+           $this->success("添加角色成功");
+       }
+
     }
 
 
     public function show()
     {
-        return  view();
+        $role=new \app\admin\model\Role();
+        $role=$role->all();
+        return  view('',["role"=>$role]);
     }
 
 

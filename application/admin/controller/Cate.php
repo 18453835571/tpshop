@@ -31,5 +31,9 @@ class Cate extends Common
             }
                 $this->error("添加分类失败","add");
         }
+
+    }
+    public function update(){
+        echo "我是修改";
     }
 }

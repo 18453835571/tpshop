@@ -20,22 +20,26 @@
         <form action="add" method="post">
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                 <tr>
-                    <td width="100" align="right">管理员名称</td>
+                    <td width="100" align="right">角色名称</td>
                     <td>
-                        <input type="text" name="webmaster_name" size="40" class="inpMain" />
+                        <input type="text" name="role_name" size="40" class="inpMain" />
                     </td>
                 </tr>
                 <tr>
-                    <td width="100" align="right">E-mail地址</td>
+                    <td width="100" align="right">角色简介</td>
                     <td>
-                        <input type="text" name="webmaster_email" size="40" class="inpMain" />
+                        <textarea name="role_jurisdiction" cols="50" rows="2" class="textArea"></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">密码</td>
+                    <td align="right">角色的权限</td>
+
                     <td>
-                        <input type="password"  name="webmaster_pwd" size="40" class="inpMain" />
+                        {foreach $cates as $key=>$vale}
+                        <input type="checkbox"  name="node_id[]"  value="{$vale.node_id}"/>{$vale.node_name}
+                        {/foreach}
                     </td>
+
                 </tr>
                 <tr>
                     <td></td>

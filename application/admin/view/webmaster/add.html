@@ -38,6 +38,15 @@
        </td>
       </tr>
       <tr>
+       <td align="right">拥有角色</td>
+       <td>
+        {foreach $role as $key=>$va}
+        <input type="checkbox"  name="role_id[]" value="{$va.role_id}"/>{$va.role_name}
+        {/foreach}
+       </td>
+
+      </tr>
+      <tr>
        <td></td>
        <td>
         <!--<input type="hidden" name="token" value="5a58b748" />-->
