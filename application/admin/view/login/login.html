@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>后台登录</title>
+<meta name="author" content="DeathGhost" />
+
+    <link rel="stylesheet" type="text/css" href="/public/static/admin/css/style.css" />
+    <style>
+body{height:100%;background:#16a085;overflow:hidden;}
+canvas{z-index:-1;position:absolute;}
+</style>
+<script src="/public/static/admin/js/jquery.js"></script>
+<script src="/public/static/admin/js/verificationNumbers.js"></script>
+<script src="/public/static/admin/js/Particleground.js"></script>
+<script>
+    <!---->
+//  $("#backastage_login").click(function(){
+//     var  username=$.trim($("#user_admin").val());
+//     var  userpassword=$.trim($("#user_pwd").val());
+//     if(username == ""){
+//         alert("请输入用户名");
+//         return false;
+//     }else if(userpassword == ""){
+//         alert("请输入密码");
+//         return false;
+//     }
+//  });
+ </script>
+</head>
+<body>
+<dl class="admin_login">
+ <dt>
+  <strong>站点后台管理系统</strong>
+  <em>Management System</em>
+ </dt>
+ <form name="backastage_lading" action="login"  method="post">
+ <dd class="user_icon">
+  <input type="text" placeholder="账号" class="login_txtbx" name="user_admin" />
+ </dd>
+ <dd class="pwd_icon">
+  <input type="password" placeholder="密码" class="login_txtbx" name="user_pwd" />
+ </dd>
+ <dd class="val_icon">
+  <div class="checkcode">
+    <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx" name="code">
+  </div>
+     </div>
+ </dd>
+    <div><img src="{:captcha_src()}" alt="captcha" /></div>
+    <input type="checkbox" name="no_loding" >记住密码
+ <dd>
+  <input type="submit" value="立即登陆" class="submit_btn"/>
+ </dd>
+  </form>
+ <dd>
+  <p>© 2015-2016 DeathGhost 版权所有</p>
+  <p>陕B2-20080224-1</p>
+ </dd>
+</dl>
+</body>
+</html>
