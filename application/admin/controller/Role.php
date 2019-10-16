@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\admin\service\RoleService;
 use think\Controller;
 use think\Request;
 
@@ -12,7 +13,8 @@ class Role extends Controller
     {
        if(request()->isGet()){
            $cate=new \app\admin\model\Role();
-           $cates=$cate->notCates();
+           $RoleService=new RoleService();
+           $cates=$RoleService->notCates($cate->all());
            return  view('',["cates"=>$cates]);
        }
        if(request()->isPost()){

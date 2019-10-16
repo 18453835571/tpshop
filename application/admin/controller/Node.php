@@ -6,20 +6,24 @@
  * Time: 23:10
  */
 namespace app\admin\controller;
-use app\admin\model\Commonnode;
 
+
+
+use app\admin\service\NodeService;
 use think\Controller;
 use think\Db;
 class Node  extends  Common{
     public  function show(){
         $cate=new \app\admin\model\Node();
-        $cates=$cate->notCates();
+        $NodeService=new NodeService();
+        $cates=$NodeService->notCates($cate->all());
         return  view('',["cates"=>$cates]);
     }
     public  function add(){
         if(request()->isGet()){
             $cate=new \app\admin\model\Node();
-            $cates=$cate->notCates();
+            $NodeService=new NodeService();
+            $cates=$NodeService->notCates($cate->all());
             return  view('',["cates"=>$cates]);
         }
         if(request()->isPost()){
